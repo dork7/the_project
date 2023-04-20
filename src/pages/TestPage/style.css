@@ -1,0 +1,22 @@
+* {
+    font-family: monospace;
+}
+
+body {
+    font-size: 20px;
+}
+
+.gray {
+    color: gray;
+}
+
+h3,
+h2 {
+    color: red;
+}
+
+p span {
+    text-transform: uppercase;
+    /* color: yellow; */
+    background-color: yellow;
+}
