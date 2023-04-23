@@ -1,11 +1,12 @@
 
 import React from 'react'
-import './style.css'
 import Selectors from './Selectors'
+import BoxModel from './BoxModel'
 const TestPage = () => {
     return (
         <div>
-            <Selectors />
+            {/* <Selectors /> */}
+            <BoxModel />
 
         </div>
     )

@@ -4,6 +4,8 @@
 
 body {
     font-size: 20px;
+    background-color: papayawhip;
+    color: darkblue;
 }
 
 .gray {
@@ -19,4 +21,15 @@ p span {
     text-transform: uppercase;
     /* color: yellow; */
     background-color: yellow;
+}
+
+.box {
+    border: 2px dotted red;
+    width: 50%;
+}
+
+.rem-size {
+    border: 2px dotted red;
+    margin: 1rem;
+    font-size: 2rem;
 }
