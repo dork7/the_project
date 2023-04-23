@@ -10,7 +10,13 @@ const Typography = () => {
                 <input type="text" placeholder='enter name' id="name" />
                 <button>Submit</button>
 
+
             </form>
+            <div style={{ display: 'flex', flexDirection: "column" }}>
+                <a href="#1">I AM A LINK</a>
+                <a href="#2">I AM A LINK 2</a>
+                <a href="#3">I AM A LINK 3</a>
+            </div>
         </div>
     )
 }

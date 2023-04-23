@@ -1,0 +1,51 @@
+body {
+    /* font-size: 2rem; */
+}
+
+p {
+    margin: 1rem;
+    background-color: lightgray;
+}
+
+/* main {
+    background-color: lightcoral;
+    width: 50%;
+} */
+
+.opposite {
+    background-color: red;
+    height: 2rem;
+    padding: 4rem;
+    display: inline-block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+ul {
+    list-style: none;
+    text-align: right;
+    background-color: lightseagreen;
+    padding: 0.5rem;
+}
+
+li {
+    display: inline-block;
+    margin-inline: 0.5rem;
+}
+
+li a {
+    display: inline-block;
+    background-color: azure;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+li a:is(:hover) {
+    /* text-decoration: underline; */
+    background-color: bisque;
+}

@@ -12,6 +12,7 @@ p {
     text-indent: 2em;
     line-height: 3rem;
     font-weight: bolder;
+
 }
 
 body {
@@ -23,4 +24,8 @@ body {
 input,
 button {
     font-size: inherit;
+}
+
+a {
+    cursor: grab;
 }
