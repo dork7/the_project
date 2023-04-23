@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+}
+
+.outer-container {
+    border: 2px dashed black;
+    height: 85vh;
+    width: 75vw;
+    margin: 6rem auto;
+    /* position: relative */
+}
+
+.inner-container {
+    border: 2px solid rgb(255, 111, 0);
+    height: 50vh;
+    width: 40vw;
+    margin: 6rem auto;
+
+}
+
+.box {
+    border: none;
+    height: 150px;
+    width: 150px;
+}
+
+.absolute {
+    position: absolute;
+    background-color: aquamarine;
+    top: 10px;
+    left: 10px;
+}
+
+.relative {
+    background-color: brown;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.fixed {
+    background-color: green;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.sticky {
+    background-color: orangered;
+    position: sticky;
+    /* top: 0; */
+}

@@ -3,6 +3,7 @@ import './display.styles.css'
 const Display = () => {
     return (
         <main>
+            <h1>Displays (inline , block, inline-block)</h1>
             <p>This is a paragraph. display is block</p>
             <p>This is <span className='opposite'>
                 span is inline </span> paragraph.</p>

@@ -1,0 +1,23 @@
+.block {
+    width: 30vw;
+    height: 30vh;
+    background-color: lightblue;
+    padding: 1rem;
+
+}
+
+.left {
+    margin-right: 1rem;
+    float: left
+}
+
+.right {
+    margin-left: 1rem;
+    float: right
+}
+
+section {
+    padding: 2rem;
+    background-color: seashell;
+    display: flow-root;
+}
