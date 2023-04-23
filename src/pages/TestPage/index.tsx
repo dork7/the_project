@@ -7,6 +7,7 @@ import Display from './Display'
 import Float from './Float'
 import Columns from './Columns'
 import Positions from './Positions'
+import NavPage from './NavPage'
 const TestPage = () => {
     return (
         <div>
@@ -15,9 +16,9 @@ const TestPage = () => {
             <Typography />
             <Columns />
             <Display />
-            <Float /> */}
             <Positions />
-
+            <Float /> */}
+            <NavPage />
         </div>
     )
 }

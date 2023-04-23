@@ -1,0 +1,36 @@
+* {
+    background-color: white;
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 100vh;
+}
+
+header {
+    background-color: red;
+    height: 4rem;
+    font-size: 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+footer {
+
+    background-color: blue;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100vw;
+    padding: 4rem
+}
+
+
+footer a {
+    text-decoration: none;
+    background-color: transparent;
+    color: white;
+    padding: 1rem 1rem;
+
+}
