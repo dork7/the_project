@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* all: unset; */
+
+}
+
+p {
+    text-decoration: overline underline line-through;
+    text-transform: capitalize;
+    text-align: justify;
+    text-indent: 2em;
+    line-height: 3rem;
+    font-weight: bolder;
+}
+
+body {
+    padding: 10%;
+    font-size: 2rem;
+
+}
+
+input,
+button {
+    font-size: inherit;
+}
