@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Greeting from '../../components/Greeting'
 import Object from '../../components/Greeting/Object'
 import Status from '../../components/Greeting/Status'
 import Heading from '../../components/Greeting/Heading'
+import Button from '../../components/Button'
 
 const Dashboard = () => {
 
@@ -18,6 +19,16 @@ const Dashboard = () => {
         { name: "dev5", age: 123 },
     ]
 
+    const [btnClickTxt, setBtnClickTxt] = useState('')
+
+    const btnClicked:
+        (event: React.MouseEvent<HTMLButtonElement>, id: number) => void
+        = (event, id) => {
+            console.log('event', event)
+            setBtnClickTxt(`Id passed from parent is ${id}`)
+        }
+
+
     return (
         <div>
 
@@ -31,6 +42,10 @@ const Dashboard = () => {
                     I am passed form main file, as a p tag
                 </p>
             </Heading>
+            <Button handleClick={btnClicked}>
+                Click me
+            </Button>
+            <p>{btnClickTxt}</p>
 
         </div >
     )
