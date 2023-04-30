@@ -4,6 +4,7 @@ import Object from '../../components/Greeting/Object'
 import Status from '../../components/Greeting/Status'
 import Heading from '../../components/Greeting/Heading'
 import Button from '../../components/Button'
+import Container from '../../components/Container'
 
 const Dashboard = () => {
 
@@ -39,13 +40,18 @@ const Dashboard = () => {
             <Status status='error' />
             <Heading>
                 <p>
-                    I am passed form main file, as a p tag
+                    THIS IS A P TAG PASSED FROM PARENT, TYPE OF THIS WILL BE REACT.NODE
                 </p>
             </Heading>
             <Button handleClick={btnClicked}>
                 Click me
             </Button>
             <p>{btnClickTxt}</p>
+
+            <Container styles={{ border: '2px solid black', padding: '1rem', display: 0 }} >
+                Demo for CSS properties using prop type = React.CSSProperties
+                <p>If i pass wrong CSS property name or property value, TS will show me error</p>
+            </Container>
 
         </div >
     )

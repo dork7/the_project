@@ -8,10 +8,10 @@ type ButtonProps = {
     handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void,
     children: string
 }
-const Button = (props: ButtonProps) => {
+const Button = ({ handleClick, children }: ButtonProps) => {
     return (
         <button style={{ padding: '1rem' }}
-            onClick={(event) => props.handleClick(event, 1)}>{props.children}</button>
+            onClick={(event) => handleClick(event, 1)}>{children}</button>
     )
 }
 

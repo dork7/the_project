@@ -7,7 +7,7 @@ type HeadingProps = {
 }
 const Heading = (props: HeadingProps) => {
     return (
-        <div>{props.children}</div>
+        <div style={{ border: '1px solid black', padding: '1rem' }}>{props.children}</div>
     )
 }
 
