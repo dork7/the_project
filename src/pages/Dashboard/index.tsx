@@ -5,6 +5,8 @@ import Status from '../../components/Greeting/Status'
 import Heading from '../../components/Greeting/Heading'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
+import LoggedIn from '../../components/state/LoggedIn'
+import User from '../../components/state/User'
 
 const Dashboard = () => {
 
@@ -52,6 +54,10 @@ const Dashboard = () => {
                 Demo for CSS properties using prop type = React.CSSProperties
                 <p>If i pass wrong CSS property name or property value, TS will show me error</p>
             </Container>
+
+            <LoggedIn />
+
+            <User />
 
         </div >
     )

@@ -10,7 +10,7 @@ type ButtonProps = {
 }
 const Button = ({ handleClick, children }: ButtonProps) => {
     return (
-        <button style={{ padding: '1rem' }}
+        <button style={{}}
             onClick={(event) => handleClick(event, 1)}>{children}</button>
     )
 }
