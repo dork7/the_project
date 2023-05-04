@@ -20,7 +20,7 @@ const Object = (props: PersonProps) => {
         <>
             <h2>Name  {firstName} {lastName} </h2>
             <div>
-                {personList.map((item: PersonObject) => <p>{JSON.stringify(item)}</p>)}
+                {personList.map((item: PersonObject, idx: number) => <p key={idx}>{JSON.stringify(item)}</p>)}
             </div>
         </>
     )

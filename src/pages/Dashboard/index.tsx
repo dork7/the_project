@@ -7,6 +7,7 @@ import Button from '../../components/Button'
 import Container from '../../components/Container'
 import LoggedIn from '../../components/state/LoggedIn'
 import User from '../../components/state/User'
+import Counter from '../../components/state/Counter'
 
 const Dashboard = () => {
 
@@ -58,6 +59,8 @@ const Dashboard = () => {
             <LoggedIn />
 
             <User />
+
+            <Counter />
 
         </div >
     )
