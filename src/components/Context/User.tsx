@@ -4,18 +4,16 @@ import { UserContext, UserContextProvider, UserContextType } from './UserContext
 const User = () => {
     const userContextRef = useContext<UserContextType>(UserContext)
     console.log('userContextRef', userContextRef)
-    // useEffect(() => {
-    //     userContextRef.setUserData({
-    //         name: "lol",
-    //         age: 333
-    //     })
-    // }, [])
+
 
     const handleLogin = () => {
-        userContextRef.setUserData({
-            name: "lol",
-            age: 222
-        })
+        if (userContextRef) {
+
+            userContextRef.setUserData({
+                name: "lol",
+                age: 222
+            })
+        }
     }
     const handleLogout = () => {
         userContextRef.setUserData(null)

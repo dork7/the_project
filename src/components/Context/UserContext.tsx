@@ -15,14 +15,14 @@ export type UserContextType = {
     setUserData: React.Dispatch<React.SetStateAction<UserDataProps | null>>
 }
 
-export const UserContext = createContext<UserContextType | null>(null)
+export const UserContext = createContext<UserContextType | null>({})
 // const setUserData = ({ name, age }: UserDataProps) => {
 
 // }
 
 export const UserContextProvider = ({ children }: UserContextProps) => {
 
-    const [userData, setUserData] = useState<UserDataProps | null>(null)
+    const [userData, setUserData] = useState({} as UserContextType)
     // useEffect(() => {
     //     setUserData({
     //         name: "asdasd"
