@@ -9,6 +9,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: "poppins";
 }
 
 html {
@@ -33,7 +34,7 @@ html {
 
 body {
   /* background-image: url('./assets/bg_3.jpg'); */
-  color: var(--color-white);
+  /* color: var(--color-white); */
 
 }
 
