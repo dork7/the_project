@@ -1,8 +1,15 @@
 import React from 'react'
+import NavBar from '../../components/Nav/NavBar'
+import { Outlet } from 'react-router-dom'
 
 const Dashboard = () => {
     return (
-        <div>Dashboard</div>
+        <div>
+            <NavBar />
+            <div id="detail">
+                <Outlet />
+            </div>
+        </div>
     )
 }
 
