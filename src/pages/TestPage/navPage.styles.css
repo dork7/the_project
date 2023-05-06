@@ -1,5 +1,5 @@
 * {
-    background-color: white;
+    background-color: rgb(106, 104, 104);
     scroll-behavior: smooth;
 }
 
@@ -8,7 +8,7 @@ section {
 }
 
 header {
-    background-color: red;
+    background-color: rgb(216, 61, 61);
     height: 4rem;
     font-size: 2rem;
     text-align: center;
@@ -18,7 +18,7 @@ header {
 
 footer {
 
-    background-color: blue;
+    background-color: rgb(73, 73, 232);
     text-align: center;
     position: sticky;
     bottom: 0;
