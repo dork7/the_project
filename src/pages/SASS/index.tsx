@@ -17,7 +17,7 @@ const SASS = () => {
 
                 <div className="showcase-content">
                     <div>
-                        <h1>Make Your Marketing Real</h1>
+                        <h1>THIS IS AN IMPLEMENTATION OF SCSS</h1>
                         <p className="m-1">
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est
                             eligendi tempore atque laborum. Quisquam nemo at non. Corrupti,
