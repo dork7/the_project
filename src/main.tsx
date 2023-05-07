@@ -8,6 +8,7 @@ import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from "react-error-boundary";
 import Dashboard from './pages/Dashboard/index.tsx';
 import Login from './pages/Auth/Login.tsx';
+import TestPage from './pages/TestPage/index.tsx';
 
 
 function fallbackRender({ error, resetErrorBoundary }) {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/test-page",
+        element: <TestPage />,
+      },
+
     ],
   },
 
