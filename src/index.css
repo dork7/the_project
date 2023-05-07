@@ -45,7 +45,7 @@ nav {
   justify-content: center;
 }
 
-nav li p {
+nav p {
   font-weight: 800;
   color: #1a1717;
   /* display: inline; */
@@ -59,7 +59,7 @@ nav li p {
 
 
 
-nav li p:is(:hover) {
+nav p:is(:hover) {
   background-color: #fff;
 }
 
@@ -67,4 +67,8 @@ img {
   display: block;
   width: 100;
   object-fit: cover;
+}
+
+#detail {
+  margin: 0.5rem;
 }

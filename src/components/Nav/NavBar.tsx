@@ -1,30 +1,28 @@
-import React from 'react'
-import { Link, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav>
-            <li>
-                <Link to={`/`} className='nav-link'>
-                    <p>
-                        Home
-                    </p>
-                </Link>
-            </li>
-            <li>
-                <Link to={"/login"}>
-                    <p>
-                        Login
-                    </p>
-                </Link>
-            </li>
-            <li>
-                <Link to={"/test-page"}>
-                    <p>
-                        Test Page
-                    </p>
-                </Link>
-            </li>
+            <Link to={`/`} className='nav-link'>
+                <p>
+                    Home
+                </p>
+            </Link>
+            <Link to={"/login"}>
+                <p>
+                    Login
+                </p>
+            </Link>
+            <Link to={"/test-page"}>
+                <p>
+                    Test Page
+                </p>
+            </Link>
+            <Link to={"/sass"}>
+                <p>
+                    SASS
+                </p>
+            </Link>
         </nav>
     )
 }

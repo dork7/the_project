@@ -1,17 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { ErrorBoundary } from "react-error-boundary";
-import Dashboard from './pages/Dashboard/index.tsx';
 import Login from './pages/Auth/Login.tsx';
+import Dashboard from './pages/Dashboard/index.tsx';
+import SASS from './pages/SASS/index.tsx';
 import TestPage from './pages/TestPage/index.tsx';
 
 
-function fallbackRender({ error, resetErrorBoundary }) {
+function fallbackRender({ error, resetErrorBoundary }: any) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
 
   return (
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/test-page",
         element: <TestPage />,
+      },
+      {
+        path: "/sass",
+        element: <SASS />,
       },
 
     ],
