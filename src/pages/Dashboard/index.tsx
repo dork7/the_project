@@ -1,15 +1,15 @@
 import React from 'react'
 import NavBar from '../../components/Nav/NavBar'
 import { Outlet } from 'react-router-dom'
-import { Button } from '@mui/material'
+import { Button, Checkbox } from '@mui/material'
+import { useTheme } from '@emotion/react'
 
 const Dashboard = () => {
+    const theme = useTheme();
+
     return (
         <div>
-            dash
-            {/* <div id="detail">
-                <Outlet />
-            </div> */}
+            <Checkbox defaultChecked />
         </div>
     )
 }
