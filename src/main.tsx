@@ -8,9 +8,10 @@ import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from "react-error-boundary";
 import Dashboard from './pages/Dashboard/index.tsx';
 import Login from './pages/Auth/Login.tsx';
+import Root from './pages/index.tsx';
 
 
-function fallbackRender({ error, resetErrorBoundary }) {
+function fallbackRender({ error, resetErrorBoundary }: any) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
 
   return (
@@ -24,8 +25,12 @@ function fallbackRender({ error, resetErrorBoundary }) {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: <Root />,
     children: [
+      {
+        path: "/home",
+        element: <Dashboard />,
+      },
       {
         path: "/login",
         element: <Login />,
