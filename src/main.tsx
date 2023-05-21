@@ -48,7 +48,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <Checkbox defaultChecked />
       <ErrorBoundary fallbackRender={fallbackRender}>
         <RouterProvider router={router} />
       </ErrorBoundary>
