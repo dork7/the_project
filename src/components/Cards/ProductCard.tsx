@@ -35,10 +35,9 @@ const categories = [
 ]
 
 
-const ProductCards = (props: any) => {
+const ProductCard = (props: any) => {
     return (
         <>
-
             <div className="categories-container">
                 {categories.map(({ title, price, imageUrl, id }) => {
                     return (
@@ -59,4 +58,4 @@ const ProductCards = (props: any) => {
     )
 }
 
-export default ProductCards
+export default ProductCard 

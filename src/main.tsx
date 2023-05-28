@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { ErrorBoundary } from "react-error-boundary";
 import Login from './pages/Auth/Login.tsx';
@@ -11,11 +11,11 @@ import Root from './pages/index.tsx';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './config/theme.ts';
 import { Checkbox } from '@mui/material';
+import App from './App.tsx';
 
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
-
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -24,29 +24,13 @@ function fallbackRender({ error, resetErrorBoundary }: any) {
   );
 }
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        path: "/home",
-        element: <Dashboard />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-    ],
-  },
-
-
-]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <ErrorBoundary fallbackRender={fallbackRender}>
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ErrorBoundary>
     </ThemeProvider>
   </React.StrictMode>,
