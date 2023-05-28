@@ -63,8 +63,9 @@ nav li p:is(:hover) {
   background-color: #fff;
 }
 
+/* 
 img {
   display: block;
   width: 100;
   object-fit: cover;
-}
+} */
