@@ -13,8 +13,8 @@ const navList: NavType[] = [
         path: '/'
     },
     {
-        title: 'Shop',
-        path: '/shop'
+        title: 'Sign In',
+        path: '/sign-in'
     },
 ]
 
