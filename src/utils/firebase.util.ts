@@ -1,11 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 const firebaseConfig = {
     apiKey: "AIzaSyC_54nXURRTmDoirfperDV04p1nquUYw5c",
     authDomain: "udemy-crwnclothing.firebaseapp.com",
@@ -26,3 +21,24 @@ provider.setCustomParameters({
 
 export const auth = getAuth()
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
+
+
+export const db = getFirestore()
+
+export const createUserDocumentFromAuth = async (userAuth: any) => {
+    const userDocRef = doc(db, 'user', userAuth.uid)
+    const userSnapshot = await getDoc(userDocRef)
+    if (!userSnapshot.exists()) {
+        // create User
+        const { displayName, email } = userAuth;
+        const createdAt = new Date()
+        try {
+
+            setDoc(userDocRef, { displayName, email, createdAt })
+        } catch (err) {
+            console.log('err', err)
+        }
+    }
+    return userDocRef
+}
+
