@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect, auth } from '../../utils/firebase.util'
 import { getRedirectResult } from 'firebase/auth'
+import SignUpForm from '../../components/SignUpForm/SignUp.component'
 
 const SignInComponent = () => {
     const logUserWithGoogle = async () => {
@@ -45,6 +46,8 @@ const SignInComponent = () => {
             <button onClick={signInWithGoogleRedirect}>
                 SIGN-IN WITH GOOGLE REDIRECT
             </button>
+
+            <SignUpForm />
         </div>
     )
 }
