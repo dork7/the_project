@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from '../../components/Cards/ProductCard'
 
-const HomeComponent = () => {
+const HomePage = () => {
     return (
         <div>
             <ProductCard />
@@ -9,4 +9,4 @@ const HomeComponent = () => {
     )
 }
 
-export default HomeComponent
+export default HomePage

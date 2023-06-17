@@ -3,6 +3,7 @@ import { createAuthUserWithEmailPassword, createUserDocumentFromAuth } from '../
 import { notifyMe } from '../../utils/notifications'
 import FormInput from '../FormInput/FormInput.component'
 import './signup.style.scss'
+import Button from '../Button'
 const defaultValues = {
     displayName: '', email: '', password: ''
 }
@@ -10,6 +11,7 @@ const SignUpForm = () => {
 
     const [formValues, setFormValues] = useState(defaultValues)
     const { displayName, email, password } = formValues
+
     const formSubmitted = async (e: any) => {
         e.preventDefault()
         try {
@@ -46,9 +48,11 @@ const SignUpForm = () => {
                 <FormInput label="Display Name" placeholder1='Your name' required onChange={handleChange} name='displayName' value={displayName} />
                 <FormInput label="Email" placeholder1='dev@dev.co' required onChange={handleChange} name='email' type='email' value={email} />
                 <FormInput label="Password" placeholder1='***************' required onChange={handleChange} name='password' type='password' value={password} />
-                <button type='submit'>
-                    Sign up
-                </button>
+
+                <Button type='submit'  >
+                    Sign Up
+                </Button>
+
             </form>
         </div>
     )
