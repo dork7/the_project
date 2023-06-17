@@ -3,7 +3,7 @@ import './form-input.style.scss'
 const FormInput = ({ label, ...rest }: any) => {
     return (
         <div className='group'>
-            <input class='form-input' {...rest} />
+            <input className='form-input' {...rest} />
             {
                 label && <label className={`${rest.value.length ? 'shrink' : ''} form-input-label`}>{label}</label>
             }
