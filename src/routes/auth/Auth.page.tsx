@@ -1,15 +1,10 @@
 import SignInForm from '../../components/SignInForm/SignIn.component'
 import SignUpForm from '../../components/SignUpForm/SignUp.component'
-
+import './auth.styles.scss'
 const AuthPage = () => {
 
     return (
-        <div style={{
-            display: 'flex',
-            gap: '2px',
-            flexDirection: 'row',
-            justifyContent: 'space-around'
-        }}>
+        <div className='auth-container'>
 
             <SignInForm />
 

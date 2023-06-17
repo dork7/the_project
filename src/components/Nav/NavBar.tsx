@@ -14,7 +14,7 @@ const navList: NavType[] = [
     },
     {
         title: 'Sign In',
-        path: '/sign-in'
+        path: '/auth'
     },
 ]
 
