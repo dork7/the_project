@@ -19,15 +19,15 @@ const SignUpForm = () => {
         try {
             const { user }: any = await createAuthUserWithEmailPassword(email, password)
             setCurrentUser(user)
-            notifyMe({ title: "Success", msg: "User created" })
+            notifyMe({ type: "success", msg: "User created" })
 
             await createUserDocumentFromAuth(user, { displayName })
         } catch (err: any) {
             if (err.code === "auth/email-already-in-use") {
-                notifyMe({ title: "Error", msg: "Email already in use" })
+                notifyMe({ type: "error", msg: "Email already in use" })
             } else {
                 console.log('err', err.code)
-                notifyMe({ title: "Error", msg: err.code })
+                notifyMe({ type: "error", msg: err.code })
             }
         }
     }

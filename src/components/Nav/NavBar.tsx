@@ -4,6 +4,7 @@ import './navBar.style.scss'
 import CrwnLogo from "../../assets/crown.svg"
 import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
+import { notifyMe } from '../../utils/notifications'
 
 
 type NavType = {
@@ -28,10 +29,10 @@ const navList: NavType[] = [
 const NavBar = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext)
-
     const handleSignOut = async () => {
         await signOutUser()
         setCurrentUser(null)
+        notifyMe({ type: 'success', msg: `You're logged out` })
     }
 
 
@@ -47,19 +48,19 @@ const NavBar = () => {
                     {navList.map((item: NavType, idx: number) => {
 
                         return (
-                            <>
+                            <div key={idx} >
                                 {typeof item.title === 'function' ?
-                                    <div key={idx} onClick={handleSignOut} className='nav-link'>
+                                    <div onClick={handleSignOut} className='nav-link'>
                                         <p >
                                             {item.title(currentUser)}
                                         </p>
                                     </div>
-                                    : <Link key={item.title} to={item.path} className='nav-link'>
+                                    : <Link to={item.path} className='nav-link'>
                                         <p >
                                             {item.title}
                                         </p>
                                     </Link>}
-                            </>
+                            </div>
                         )
                     })}
                 </div>

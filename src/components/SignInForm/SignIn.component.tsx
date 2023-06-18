@@ -56,10 +56,10 @@ const SignInForm = () => {
 
             const { user }: any = await signInAuthWIthUserNamePassword(email, password)
             setCurrentUser(user)
-            notifyMe({ title: "Success", msg: "Logged in" })
+            notifyMe({ type: "success", msg: "Logged in" })
 
         } catch (err: any) {
-            notifyMe({ title: "Error", msg: err.code ?? err })
+            notifyMe({ type: "error", msg: err.code ?? err })
 
         }
     }
