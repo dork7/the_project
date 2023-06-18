@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { createAuthUserWithEmailPassword, createUserDocumentFromAuth } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import FormInput from '../FormInput/FormInput.component'
 import './signup.style.scss'
 import Button from '../Button'
+import { UserContext } from '../../contexts/user.context'
 const defaultValues = {
     displayName: '', email: '', password: ''
 }
@@ -11,11 +12,13 @@ const SignUpForm = () => {
 
     const [formValues, setFormValues] = useState(defaultValues)
     const { displayName, email, password } = formValues
+    const { setCurrentUser } = useContext(UserContext)
 
     const formSubmitted = async (e: any) => {
         e.preventDefault()
         try {
             const { user }: any = await createAuthUserWithEmailPassword(email, password)
+            setCurrentUser(user)
             notifyMe({ title: "Success", msg: "User created" })
 
             await createUserDocumentFromAuth(user, { displayName })

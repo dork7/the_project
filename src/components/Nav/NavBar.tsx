@@ -1,24 +1,41 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, Outlet, Router } from 'react-router-dom'
 import './navBar.style.scss'
 import CrwnLogo from "../../assets/crown.svg"
+import { UserContext } from '../../contexts/user.context'
+import { signOutUser } from '../../utils/firebase.util'
+
 
 type NavType = {
-    title: string
+    id: number
+    title: string | (({ }: any) => string)
     path: string
 }
 const navList: NavType[] = [
     {
+        id: 1,
         title: 'Home',
         path: '/'
     },
     {
-        title: 'Sign In',
-        path: '/auth'
+        id: 2,
+        title: (currentUser) => currentUser !== null ? 'Logout' : 'Sign In',
+        path: '/auth',
     },
+
 ]
 
 const NavBar = () => {
+
+    const { currentUser, setCurrentUser } = useContext(UserContext)
+
+    const handleSignOut = async () => {
+        await signOutUser()
+        setCurrentUser(null)
+    }
+
+
+
     return (
         <>
             <nav>
@@ -27,18 +44,27 @@ const NavBar = () => {
                 </Link>
                 <div className='navItems'>
 
-                    {navList.map((item: NavType) => {
+                    {navList.map((item: NavType, idx: number) => {
+
                         return (
-                            <Link key={item.title} to={item.path} className='nav-link'>
-                                <p>
-                                    {item.title}
-                                </p>
-                            </Link>
+                            <>
+                                {typeof item.title === 'function' ?
+                                    <div key={idx} onClick={handleSignOut} className='nav-link'>
+                                        <p >
+                                            {item.title(currentUser)}
+                                        </p>
+                                    </div>
+                                    : <Link key={item.title} to={item.path} className='nav-link'>
+                                        <p >
+                                            {item.title}
+                                        </p>
+                                    </Link>}
+                            </>
                         )
                     })}
                 </div>
 
-            </nav>
+            </nav >
             <Outlet />
         </>
 

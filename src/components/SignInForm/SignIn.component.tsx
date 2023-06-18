@@ -1,22 +1,24 @@
 import { getRedirectResult } from 'firebase/auth'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { auth, createUserDocumentFromAuth, signInAuthWIthUserNamePassword, signInWithGooglePopup } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'
 import FormInput from '../FormInput/FormInput.component'
 import './sigin.style.scss'
+import { UserContext } from '../../contexts/user.context'
+
 
 const defaultValues = {
     email: 'dev@dev.co', password: '123123'
 }
 const SignInForm = () => {
+    const { setCurrentUser } = useContext(UserContext)
 
     const [formValues, setFormValues] = useState(defaultValues)
     const { email, password } = formValues
 
     const logUserWithGoogle = async () => {
         const { user } = await signInWithGooglePopup()
-
         await createUserDocumentFromAuth(user, {})
 
     }
@@ -25,6 +27,7 @@ const SignInForm = () => {
     //     console.log('login', login)
     // }
     // getRedirectResult()
+
 
     useEffect(() => {
 
@@ -51,12 +54,12 @@ const SignInForm = () => {
         e.preventDefault()
         try {
 
-            const result = await signInAuthWIthUserNamePassword(email, password)
-            console.log('result', result)
+            const { user }: any = await signInAuthWIthUserNamePassword(email, password)
+            setCurrentUser(user)
             notifyMe({ title: "Success", msg: "Logged in" })
 
         } catch (err: any) {
-            notifyMe({ title: "Error", msg: err.code })
+            notifyMe({ title: "Error", msg: err.code ?? err })
 
         }
     }

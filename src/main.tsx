@@ -1,17 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@emotion/react';
+import { ErrorBoundary } from "react-error-boundary";
+import { theme } from './config/theme.ts';
+import { UserContextProvider } from './contexts/user.context.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-
-import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
-
-import { ErrorBoundary } from "react-error-boundary";
-import Login from './pages/Auth/Login.tsx';
-import Dashboard from './pages/Dashboard/index.tsx';
-import Root from './pages/index.tsx';
-import { ThemeProvider } from '@emotion/react';
-import { theme } from './config/theme.ts';
-import { Checkbox } from '@mui/material';
 import App from './App.tsx';
+import './index.css';
 
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
@@ -29,7 +24,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ThemeProvider theme={theme}>
       <ErrorBoundary fallbackRender={fallbackRender}>
         <BrowserRouter>
-          <App />
+          <UserContextProvider>
+            <App />
+          </UserContextProvider>
         </BrowserRouter>
       </ErrorBoundary>
     </ThemeProvider>
