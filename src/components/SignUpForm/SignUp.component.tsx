@@ -18,7 +18,7 @@ const SignUpForm = () => {
         e.preventDefault()
         try {
             const { user }: any = await createAuthUserWithEmailPassword(email, password)
-            setCurrentUser(user)
+            // setCurrentUser(user)
             notifyMe({ type: "success", msg: "User created" })
 
             await createUserDocumentFromAuth(user, { displayName })

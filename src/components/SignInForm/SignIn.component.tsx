@@ -19,6 +19,7 @@ const SignInForm = () => {
 
     const logUserWithGoogle = async () => {
         const { user } = await signInWithGooglePopup()
+        // setCurrentUser(user)
         await createUserDocumentFromAuth(user, {})
 
     }
@@ -55,7 +56,7 @@ const SignInForm = () => {
         try {
 
             const { user }: any = await signInAuthWIthUserNamePassword(email, password)
-            setCurrentUser(user)
+            // setCurrentUser(user)
             notifyMe({ type: "success", msg: "Logged in" })
 
         } catch (err: any) {

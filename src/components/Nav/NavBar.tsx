@@ -10,6 +10,7 @@ import { notifyMe } from '../../utils/notifications'
 type NavType = {
     id: number
     title: string | (({ }: any) => string)
+    onClickHandler?: any
     path: string
 }
 const navList: NavType[] = [
@@ -21,6 +22,7 @@ const navList: NavType[] = [
     {
         id: 2,
         title: (currentUser) => currentUser !== null ? 'Logout' : 'Sign In',
+        onClickHandler: (currentUser, fn) => currentUser !== null ? fn : null,
         path: '/auth',
     },
 
@@ -28,14 +30,11 @@ const navList: NavType[] = [
 
 const NavBar = () => {
 
-    const { currentUser, setCurrentUser } = useContext(UserContext)
+    const { currentUser } = useContext(UserContext)
     const handleSignOut = async () => {
         await signOutUser()
-        setCurrentUser(null)
         notifyMe({ type: 'success', msg: `You're logged out` })
     }
-
-
 
     return (
         <>
@@ -50,7 +49,7 @@ const NavBar = () => {
                         return (
                             <div key={idx} >
                                 {typeof item.title === 'function' ?
-                                    <div onClick={handleSignOut} className='nav-link'>
+                                    <div onClick={item.onClickHandler(currentUser, handleSignOut)} className='nav-link'>
                                         <p >
                                             {item.title(currentUser)}
                                         </p>
