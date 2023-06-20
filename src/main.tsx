@@ -7,6 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import { ProductsContextProvider } from './contexts/product.context.tsx';
 
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
@@ -25,7 +26,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <ErrorBoundary fallbackRender={fallbackRender}>
         <BrowserRouter>
           <UserContextProvider>
-            <App />
+            <ProductsContextProvider>
+              <App />
+            </ProductsContextProvider>
           </UserContextProvider>
         </BrowserRouter>
       </ErrorBoundary>

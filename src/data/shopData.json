@@ -1,56 +1,32 @@
 [
     {
         "id": 1,
-        "name": "Brown Brim",
-        "imageUrl": "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-        "price": 25
+        "productName": "hats",
+        "imageUrl": "https://www.irreverentgent.com/wp-content/uploads/2021/02/Types-of-Mens-Hats-Banner.jpg",
+        "price": 2222
     },
     {
         "id": 2,
-        "name": "Blue Beanie",
-        "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
-        "price": 18
+        "productName": "jackets",
+        "imageUrl": "https://allensolly.abfrl.in/blog/wp-content/uploads/2022/07/Jacket.jpg",
+        "price": 2222
     },
     {
         "id": 3,
-        "name": "Brown Cowboy",
-        "imageUrl": "https://i.ibb.co/QdJwgmp/brown-cowboy.png",
-        "price": 35
+        "productName": "sneakers",
+        "imageUrl": "https://media.vogue.fr/photos/5d40515bc93b83000833392f/16:9/w_1280,c_limit/020-Sneakers-Encyclopaedia-Vogueint-Jul24-Getty-Images.jpg",
+        "price": 2222
     },
     {
         "id": 4,
-        "name": "Grey Brim",
-        "imageUrl": "https://i.ibb.co/RjBLWxB/grey-brim.png",
-        "price": 25
+        "productName": "women",
+        "imageUrl": "https://images.ctfassets.net/wl6q2in9o7k3/4YlnKlAdosi3v4dwNTz372/174a1a4997f002c29854edb1ace3aa29/GY79418_LCY-002_Web_Banner_Desktop_3800x1700px_6.jpg?w=3840&q=90",
+        "price": 2222
     },
     {
         "id": 5,
-        "name": "Green Beanie",
-        "imageUrl": "https://i.ibb.co/YTjW3vF/green-beanie.png",
-        "price": 18
-    },
-    {
-        "id": 6,
-        "name": "Palm Tree Cap",
-        "imageUrl": "https://i.ibb.co/rKBDvJX/palm-tree-cap.png",
-        "price": 14
-    },
-    {
-        "id": 7,
-        "name": "Red Beanie",
-        "imageUrl": "https://i.ibb.co/bLB646Z/red-beanie.png",
-        "price": 18
-    },
-    {
-        "id": 8,
-        "name": "Wolf Cap",
-        "imageUrl": "https://i.ibb.co/1f2nWMM/wolf-cap.png",
-        "price": 14
-    },
-    {
-        "id": 9,
-        "name": "Blue Snapback",
-        "imageUrl": "https://i.ibb.co/X2VJP2W/blue-snapback.png",
-        "price": 16
+        "productName": "mens",
+        "imageUrl": "https://static.wixstatic.com/media/045ee3_41d3828863364f46a3f5aa268330b4cf~mv2.jpg/v1/fill/w_1480,h_1168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/045ee3_41d3828863364f46a3f5aa268330b4cf~mv2.jpg",
+        "price": 2222
     }
 ]
