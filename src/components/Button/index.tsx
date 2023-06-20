@@ -1,8 +1,18 @@
-import React from 'react'
-
-const Button = () => {
+import './button.styles.css'
+const BUTTON_TYPE_CLASSES: any = {
+    google: 'google-sign-in',
+    inverted: 'inverted'
+}
+const Button = ({ children, buttonType, ...rest }: any) => {
     return (
-        <div>Button</div>
+        <>
+            {/* <button className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`} {...rest}>
+                {children}
+            </button> */}
+            <button className={` button-container  btn-slide ${BUTTON_TYPE_CLASSES[buttonType]}`} {...rest}>
+                {children}
+            </button>
+        </>
     )
 }
 

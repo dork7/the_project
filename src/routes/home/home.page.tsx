@@ -1,6 +1,7 @@
+import React from 'react'
 import ProductCard from '../../components/Cards/ProductCard'
 
-const Dashboard = () => {
+const HomePage = () => {
     return (
         <div>
             <ProductCard />
@@ -8,4 +9,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default HomePage

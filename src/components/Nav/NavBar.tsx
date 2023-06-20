@@ -1,24 +1,78 @@
-import React from 'react'
-import { Link, Router } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, Outlet, Router } from 'react-router-dom'
+import './navBar.style.scss'
+import CrwnLogo from "../../assets/crown.svg"
+import { UserContext } from '../../contexts/user.context'
+import { signOutUser } from '../../utils/firebase.util'
+import { notifyMe } from '../../utils/notifications'
+
+
+type NavType = {
+    id: number
+    title: string | (({ }: any) => string)
+    onClickHandler?: any
+    path: string
+}
+const navList: NavType[] = [
+    {
+        id: 1,
+        title: 'Home',
+        path: '/'
+    },
+    {
+        id: 3,
+        title: 'Shop',
+        path: '/shop'
+    },
+
+    {
+        id: 2,
+        title: (currentUser) => currentUser !== null ? 'Logout' : 'Sign In',
+        onClickHandler: (currentUser, fn) => currentUser !== null ? fn : null,
+        path: '/auth',
+    },
+]
 
 const NavBar = () => {
+
+    const { currentUser } = useContext(UserContext)
+    const handleSignOut = async () => {
+        await signOutUser()
+        notifyMe({ type: 'success', msg: `You're logged out` })
+    }
+
     return (
-        <nav>
-            <li>
-                <Link to={`/home`} className='nav-link'>
-                    <p>
-                        Home
-                    </p>
+        <>
+            <nav>
+                <Link to="/" className='logo-container'>
+                    <img src={CrwnLogo} />
                 </Link>
-            </li>
-            <li>
-                <Link to={"/login"}>
-                    <p>
-                        Login
-                    </p>
-                </Link>
-            </li>
-        </nav>
+                <div className='navItems'>
+
+                    {navList.map((item: NavType, idx: number) => {
+
+                        return (
+                            <div key={idx} >
+                                {typeof item.title === 'function' ?
+                                    <div onClick={item.onClickHandler(currentUser, handleSignOut)} className='nav-link'>
+                                        <p >
+                                            {item.title(currentUser)}
+                                        </p>
+                                    </div>
+                                    : <Link to={item.path} className='nav-link'>
+                                        <p >
+                                            {item.title}
+                                        </p>
+                                    </Link>}
+                            </div>
+                        )
+                    })}
+                </div>
+
+            </nav >
+            <Outlet />
+        </>
+
     )
 }
 
