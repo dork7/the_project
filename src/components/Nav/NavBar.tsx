@@ -20,12 +20,17 @@ const navList: NavType[] = [
         path: '/'
     },
     {
+        id: 3,
+        title: 'Shop',
+        path: '/shop'
+    },
+
+    {
         id: 2,
         title: (currentUser) => currentUser !== null ? 'Logout' : 'Sign In',
         onClickHandler: (currentUser, fn) => currentUser !== null ? fn : null,
         path: '/auth',
     },
-
 ]
 
 const NavBar = () => {
