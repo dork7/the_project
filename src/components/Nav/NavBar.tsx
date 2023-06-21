@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, Outlet, Router } from 'react-router-dom'
+import { Link, Outlet, Router, useNavigate } from 'react-router-dom'
 import './navBar.style.scss'
 import CrwnLogo from "../../assets/crown.svg"
 import { UserContext } from '../../contexts/user.context'
@@ -28,12 +28,17 @@ const navList: NavType[] = [
     {
         id: 2,
         title: (currentUser) => currentUser !== null ? 'Logout' : 'Sign In',
-        onClickHandler: (currentUser, fn) => currentUser !== null ? fn : null,
+        onClickHandler: (currentUser, fn, fn2) => currentUser !== null ? fn : fn2,
         path: '/auth',
     },
 ]
 
 const NavBar = () => {
+
+    const navigate = useNavigate();
+    const navigateToAuth = () => {
+        navigate("/auth")
+    }
 
     const { currentUser } = useContext(UserContext)
     const handleSignOut = async () => {
@@ -54,7 +59,8 @@ const NavBar = () => {
                         return (
                             <div key={idx} >
                                 {typeof item.title === 'function' ?
-                                    <div onClick={item.onClickHandler(currentUser, handleSignOut)} className='nav-link'>
+                                    <div onClick={item.onClickHandler(currentUser, handleSignOut, navigateToAuth
+                                    )} className='nav-link'>
                                         <p >
                                             {item.title(currentUser)}
                                         </p>
