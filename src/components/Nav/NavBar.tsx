@@ -5,6 +5,8 @@ import CrwnLogo from "../../assets/crown.svg"
 import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
+import CartIcon from '../CartIcon'
+import CartDropDown from '../CartDropDown'
 
 
 type NavType = {
@@ -73,8 +75,9 @@ const NavBar = () => {
                             </div>
                         )
                     })}
+                    <CartIcon />
+                    <CartDropDown />
                 </div>
-
             </nav >
             <Outlet />
         </>
