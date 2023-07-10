@@ -7,6 +7,7 @@ import { signOutUser } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import CartIcon from '../CartIcon'
 import CartDropDown from '../CartDropDown'
+import { CartContext } from '../../contexts/cart.context'
 
 
 type NavType = {
@@ -48,6 +49,10 @@ const NavBar = () => {
         notifyMe({ type: 'success', msg: `You're logged out` })
     }
 
+    const cartContext = useContext(CartContext)
+    const { isCartOpen } = cartContext
+
+
     return (
         <>
             <nav>
@@ -76,7 +81,7 @@ const NavBar = () => {
                         )
                     })}
                     <CartIcon />
-                    <CartDropDown />
+                    {isCartOpen && <CartDropDown />}
                 </div>
             </nav >
             <Outlet />
