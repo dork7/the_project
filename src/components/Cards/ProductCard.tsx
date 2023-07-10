@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './categories.styles.scss'
 const categories = [
     {
@@ -36,6 +36,9 @@ const categories = [
 
 
 const ProductCard = (props: any) => {
+
+
+
     return (
         <>
             <div className="categories-container">
