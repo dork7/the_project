@@ -5,6 +5,7 @@ import HomePage from './routes/home/home.page'
 import ShopPage from './routes/shop/shop.page'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import CheckoutPage from './routes/checkout/Checkout.page'
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
                     <Route index element={<HomePage />} />
                     <Route path='shop' element={<ShopPage />} />
                     <Route path='auth' element={<AuthPage />} />
+                    <Route path='checkout' element={<CheckoutPage />} />
                 </Route>
             </Routes>
             <ToastContainer />
