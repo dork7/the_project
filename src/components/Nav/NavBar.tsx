@@ -8,6 +8,7 @@ import { notifyMe } from '../../utils/notifications'
 import CartIcon from '../CartIcon'
 import CartDropDown from '../CartDropDown'
 import { CartContext } from '../../contexts/cart.context'
+import Button from '../Button'
 
 
 type NavType = {
@@ -52,6 +53,9 @@ const NavBar = () => {
     const cartContext = useContext(CartContext)
     const { isCartOpen } = cartContext
 
+    const checkoutClick = () => {
+        navigate('/checkout')
+    }
 
     return (
         <>
@@ -82,6 +86,7 @@ const NavBar = () => {
                     })}
                     <CartIcon />
                     {isCartOpen && <CartDropDown />}
+                    <Button onClick={checkoutClick} ></Button>
                 </div>
             </nav >
             <Outlet />

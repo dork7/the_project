@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 import './checkout.styles.scss'
 import CheckoutItem from '../../components/CheckoutItem'
+import Button from '../../components/Button'
 const CheckoutPage = () => {
-    const { cartItems, addItemsToCart, removeItemFromCart } = useContext(CartContext)
+    const { cartItems, clearCart, totalPrice } = useContext(CartContext)
+
     return (
         <div className="checkout-container">
             <div className="checkout-header">
@@ -27,19 +29,9 @@ const CheckoutPage = () => {
 
             </div>
             {cartItems?.map(item => <CheckoutItem cartItem={item} />)}
-            {/* {cartItems?.map((item: any) => {
-                const { productName, id, quantity, price } = item
-                return <div key={id}>
-                    <h2>
-                        {productName}
-                    </h2>
-                    <span onClick={() => removeItemFromCart(item)}>Dec</span>  <br />
-                    <span>{quantity}</span>
-                    <br />
-                    <span onClick={() => addItemsToCart(item)}>Inc</span>
-                </div >
-            })} */}
-            <span className='total'>TOTAL </span>
+
+            <span className='total'>TOTAL {totalPrice}</span>
+            <span className='clearCart' onClick={() => clearCart()}>Clear Cart</span>
         </div>
     )
 }

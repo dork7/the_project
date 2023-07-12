@@ -1,7 +1,8 @@
 import './button.styles.css'
 const BUTTON_TYPE_CLASSES: any = {
     google: 'google-sign-in',
-    inverted: 'inverted'
+    inverted: 'inverted',
+    small: 'small'
 }
 const Button = ({ children, buttonType, ...rest }: any) => {
     return (
