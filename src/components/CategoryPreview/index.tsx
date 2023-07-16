@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ProductCardShop from '../ProductCard'
 import './category-preview.styles.scss'
 
@@ -6,12 +7,14 @@ const CategoryPreview = (props) => {
     return (
         <div className='category-preview-container'>
             <h2>
-                <span className='title'>
-                    {title.toUpperCase()}
-                </span>
+                <Link to={`/shop/${title}`}>
+                    <span className='title'>
+                        {title.toUpperCase()}
+                    </span>
+                </Link>
             </h2>
             <div className='preview'>
-                {products?.filter((value, index, array) => index < 4).map((data) =>
+                {products?.map((data) =>
                     (<ProductCardShop key={data.id} product={data} />)
                 )}
             </div>

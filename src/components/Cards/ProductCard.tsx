@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import './categories.styles.scss'
+import { CategoriesContext } from '../../contexts/product.context'
+import { useNavigate } from 'react-router-dom'
 const categories = [
     {
         "id": 1,
@@ -37,21 +39,25 @@ const categories = [
 
 const ProductCard = (props: any) => {
 
-
+    const { categoriesMap } = useContext(CategoriesContext)
+    const navigate = useNavigate()
+    const handleClick = (item) => {
+        navigate(`/shop/${item}`)
+    }
 
     return (
         <>
             <div className="categories-container">
-                {categories.map(({ title, price, imageUrl, id }) => {
+                {Object.keys(categoriesMap).map((title) => {
                     return (
-                        <div key={id} className="category-container">
+                        <div key={categoriesMap[title][0].id} className="category-container">
                             <div className={'background-image'} style={{
-                                backgroundImage: `url(${imageUrl})`
+                                backgroundImage: `url(${categoriesMap[title][0].imageUrl})`
                             }} />
-                            <div className="category-body-container">
-                                <h1>{title}</h1>
-                                <p>Shop Now</p>
-                                <p>$ {price}</p>
+                            <div className="category-body-container" onClick={() => handleClick(title)}>
+                                <h1>{title.toUpperCase()}</h1>
+                                <p >Shop Now</p>
+                                <p>$ {categoriesMap[title][0].price}</p>
                             </div>
                         </div>
                     )

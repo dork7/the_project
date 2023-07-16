@@ -23,11 +23,11 @@ const navList: NavType[] = [
         title: 'Home',
         path: '/'
     },
-    {
-        id: 3,
-        title: 'Shop',
-        path: '/shop'
-    },
+    // {
+    //     id: 3,
+    //     title: 'Shop',
+    //     path: '/shop'
+    // },
 
     {
         id: 2,

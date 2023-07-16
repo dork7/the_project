@@ -1,22 +1,26 @@
-import React, { useContext } from 'react'
-import { CategoriesContext } from '../../contexts/product.context'
-import ProductCardShop from '../../components/ProductCard'
-import './shop.styles.scss'
-import { CartContext } from '../../contexts/cart.context'
+import { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import CategoryPreview from '../../components/CategoryPreview'
+import { CategoriesContext } from '../../contexts/product.context'
+import './shop.styles.scss'
 const ShopPage = () => {
     const { categoriesMap } = useContext(CategoriesContext)
 
+    const params = useParams()
+    console.log('params', params)
+
     return (
         <>
-
-            {Object.keys(categoriesMap).map((item) => {
+            <div className='shop-container' key={categoriesMap[params.category]}>
+                <CategoryPreview title={params.category} products={categoriesMap[params.category]} />
+            </div>
+            {/* {Object.keys(categoriesMap).map((item) => {
                 return (
-                    <div className='shop-container'>
+                    <div className='shop-container' key={item}>
                         <CategoryPreview title={item} products={categoriesMap[item]} />
                     </div>
                 )
-            })}
+            })} */}
         </>
     )
 }
