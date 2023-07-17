@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, Outlet, Router, useNavigate } from 'react-router-dom'
-import './navBar.style.scss'
+import { LoginLogout, NavItems, NavLinks, NavigationContainer } from './navBar.style'
 import CrwnLogo from "../../assets/crown.svg"
 import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
@@ -59,36 +59,36 @@ const NavBar = () => {
 
     return (
         <>
-            <nav>
+            <NavigationContainer>
                 <Link to="/" className='logo-container'>
                     <img src={CrwnLogo} />
                 </Link>
-                <div className='navItems'>
+                <NavItems>
 
                     {navList.map((item: NavType, idx: number) => {
 
                         return (
                             <div key={idx} >
                                 {typeof item.title === 'function' ?
-                                    <div onClick={item.onClickHandler(currentUser, handleSignOut, navigateToAuth
-                                    )} className='nav-link'>
+                                    <LoginLogout onClick={item.onClickHandler(currentUser, handleSignOut, navigateToAuth
+                                    )}  >
                                         <p >
                                             {item.title(currentUser)}
                                         </p>
-                                    </div>
-                                    : <Link to={item.path} className='nav-link'>
+                                    </LoginLogout>
+                                    : <NavLinks to={item.path} >
                                         <p >
                                             {item.title}
                                         </p>
-                                    </Link>}
+                                    </NavLinks>}
                             </div>
                         )
                     })}
                     <CartIcon />
                     {isCartOpen && <CartDropDown />}
                     <Button onClick={checkoutClick} ></Button>
-                </div>
-            </nav >
+                </NavItems>
+            </NavigationContainer >
             <Outlet />
         </>
 
