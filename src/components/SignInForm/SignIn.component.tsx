@@ -2,7 +2,7 @@ import { getRedirectResult } from 'firebase/auth'
 import { useContext, useEffect, useState } from 'react'
 import { auth, createUserDocumentFromAuth, signInAuthWIthUserNamePassword, signInWithGooglePopup } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
-import Button from '../Button'
+import Button, { BUTTON_TYPE_CLASSES } from '../Button'
 import FormInput from '../FormInput/FormInput.component'
 import './sigin.style.scss'
 import { UserContext } from '../../contexts/user.context'
@@ -66,12 +66,6 @@ const SignInForm = () => {
     }
 
     return (
-
-
-
-
-
-
         <div className='sign-up-container'>
             <h2>
                 Have account? Sign In
@@ -87,7 +81,7 @@ const SignInForm = () => {
                     <Button type='submit'  >
                         Sign In
                     </Button>
-                    <Button type='button' buttonType="google" onClick={logUserWithGoogle}>
+                    <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={logUserWithGoogle}>
                         GOOGLE SIGN-IN
                     </Button>
                 </div>
