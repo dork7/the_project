@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, Outlet, Router, useNavigate } from 'react-router-dom'
-import './navBar.style.scss'
+import { NavContainer, NavItemContainer } from './NavBar.style'
 import CrwnLogo from "../../assets/crown.svg"
 import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
@@ -9,7 +9,6 @@ import CartIcon from '../CartIcon'
 import CartDropDown from '../CartDropDown'
 import { CartContext } from '../../contexts/cart.context'
 import Button from '../Button'
-
 
 type NavType = {
     id: number
@@ -59,11 +58,11 @@ const NavBar = () => {
 
     return (
         <>
-            <nav>
+            <NavContainer>
                 <Link to="/" className='logo-container'>
                     <img src={CrwnLogo} />
                 </Link>
-                <div className='navItems'>
+                <NavItemContainer className='navItems'>
 
                     {navList.map((item: NavType, idx: number) => {
 
@@ -87,8 +86,8 @@ const NavBar = () => {
                     <CartIcon />
                     {isCartOpen && <CartDropDown />}
                     <Button onClick={checkoutClick} ></Button>
-                </div>
-            </nav >
+                </NavItemContainer>
+            </NavContainer >
             <Outlet />
         </>
 
