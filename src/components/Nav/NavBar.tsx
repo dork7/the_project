@@ -44,6 +44,8 @@ const NavBar = () => {
     }
 
     const { currentUser } = useContext(UserContext)
+
+    // console.log('currentUser', !!currentUser)
     const handleSignOut = async () => {
         await signOutUser()
         notifyMe({ type: 'success', msg: `You're logged out` })

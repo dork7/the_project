@@ -1,13 +1,15 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useReducer, useState } from 'react';
+import { cartReducer } from '../reducers/cart.reducer';
+import { updateCartItemAction } from '../actions/cart.actions';
 
 export const CartContext = createContext({
-    cartItems: [],
-    isCartOpen: false,
     setIsCartOpen: () => { },
     addItemsToCart: () => { },
     removeItemFromCart: () => { },
-    count: 0,
     clearCart: () => { },
+    count: 0,
+    cartItems: [],
+    isCartOpen: false,
     totalPrice: 0,
 })
 
@@ -36,34 +38,30 @@ const removeCartItem = (cartItems: any, cartItemToRemove: any, wholeItem: boolea
 }
 
 export const CartContextProvider = ({ children }: any) => {
-    const [cartItems, setCartItems] = useState([])
 
     const [isCartOpen, setIsCartOpen] = useState(false)
-
-    const [count, setCount] = useState(0)
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [state, dispatch] = useReducer(cartReducer, {
+        cartItems: [{
+            id: 20,
+            productName: "Grey Jean Jacket",
+            price: 90,
+            imageUrl: "https://allensolly.abfrl.in/blog/wp-content/uploads/2022/07/Jacket.jpg",
+            quantity: 1
+        },], count: 0, totalPrice: 0
+    })
+    const { cartItems, count, totalPrice } = state
 
     const addItemsToCart = (productToAdd: any) => {
-        setCartItems(addCartItem(cartItems, productToAdd))
+        updateCartItemAction(addCartItem(cartItems, productToAdd), dispatch)
     }
     const removeItemFromCart = (cartItemToRemove: any, wholeItem: any) => {
-        setCartItems(removeCartItem(cartItems, cartItemToRemove, wholeItem))
+        updateCartItemAction(removeCartItem(cartItems, cartItemToRemove, wholeItem), dispatch)
     }
     const clearCart = () => {
-        setCartItems([])
+        const newCartItem = []
+        updateCartItemAction([], dispatch)
+
     }
-
-    useEffect(() => {
-        // setCount(prevCount => prevCount + 1)
-        // setCount(cartItems.length)
-        const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0)
-        setCount(cartItemCount)
-        setTotalPrice(
-            cartItems.reduce((acc: number, item: any) => acc + item.price, 0)
-        )
-
-    }, [cartItems])
-
 
     const value = { totalPrice, clearCart, isCartOpen, setIsCartOpen, cartItems, addItemsToCart, count, removeItemFromCart }
     return <CartContext.Provider value={value} >
