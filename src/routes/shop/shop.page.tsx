@@ -4,11 +4,9 @@ import CategoryPreview from '../../components/CategoryPreview'
 import { CategoriesContext } from '../../contexts/product.context'
 import './shop.styles.scss'
 const ShopPage = () => {
-    const { categoriesMap } = useContext(CategoriesContext)
+    const { categoriesMap }: any = useContext(CategoriesContext)
 
     const params = useParams()
-    console.log('params', params)
-
     return (
         <>
             <div className='shop-container' key={categoriesMap[params.category]}>

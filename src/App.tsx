@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import NavBar from './components/Nav/NavBar'
 import AuthPage from './routes/auth/Auth.page'
+import CheckoutPage from './routes/checkout/Checkout.page'
 import HomePage from './routes/home/home.page'
 import ShopPage from './routes/shop/shop.page'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-import CheckoutPage from './routes/checkout/Checkout.page'
 
 const App = () => {
 

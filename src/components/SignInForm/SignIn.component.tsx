@@ -1,34 +1,26 @@
 import { getRedirectResult } from 'firebase/auth'
 import { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../../contexts/user.context'
 import { auth, createUserDocumentFromAuth, signInAuthWIthUserNamePassword, signInWithGooglePopup } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'
 import FormInput from '../FormInput/FormInput.component'
 import './sigin.style.scss'
-import { UserContext } from '../../contexts/user.context'
 
 
 const defaultValues = {
     email: 'dev@dev.co', password: '123123'
 }
 const SignInForm = () => {
-    const { setCurrentUser } = useContext(UserContext)
 
     const [formValues, setFormValues] = useState(defaultValues)
     const { email, password } = formValues
 
     const logUserWithGoogle = async () => {
         const { user } = await signInWithGooglePopup()
-        // setCurrentUser(user)
         await createUserDocumentFromAuth(user, {})
 
     }
-    // const logUserWithGoogleRedirect = async () => {
-    //     const login = await signInWithGoogleRedirect()
-    //     console.log('login', login)
-    // }
-    // getRedirectResult()
-
 
     useEffect(() => {
 

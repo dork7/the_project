@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
-import { Link, Outlet, Router, useNavigate } from 'react-router-dom'
-import { NavContainer, NavItemContainer } from './NavBar.style'
+import { useContext } from 'react'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import CrwnLogo from "../../assets/crown.svg"
+import { CartContext } from '../../contexts/cart.context'
 import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
-import CartIcon from '../CartIcon'
-import CartDropDown from '../CartDropDown'
-import { CartContext } from '../../contexts/cart.context'
 import Button from '../Button'
+import CartDropDown from '../CartDropDown'
+import CartIcon from '../CartIcon'
+import { NavContainer, NavItemContainer } from './NavBar.style'
 
 type NavType = {
     id: number

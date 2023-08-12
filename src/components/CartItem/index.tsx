@@ -1,4 +1,3 @@
-import React from 'react'
 import './cartItem.styles.scss'
 const CartItem = (props: any) => {
     if (!props.item) return

@@ -1,4 +1,3 @@
-import React from 'react'
 import SHOP_DATA from '../../data/shopData.json'
 const ShopPage = () => {
     return (

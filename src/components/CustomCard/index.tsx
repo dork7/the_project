@@ -6,7 +6,7 @@ const CustomCard = () => {
             <div className="content">
                 <div className="back">
                     <div className="back-content">
-                        <svg stroke="#ffffff" xmlns: xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height="50px" width="50px" fill="#ffffff">
+                        <svg stroke="#ffffff" viewBox="0 0 50 50" height="50px" width="50px" fill="#ffffff">
 
                             <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
 

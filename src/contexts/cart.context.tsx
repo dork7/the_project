@@ -43,10 +43,10 @@ export const CartContextProvider = ({ children }: any) => {
     const [count, setCount] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const addItemsToCart = (productToAdd) => {
+    const addItemsToCart = (productToAdd: any) => {
         setCartItems(addCartItem(cartItems, productToAdd))
     }
-    const removeItemFromCart = (cartItemToRemove, wholeItem) => {
+    const removeItemFromCart = (cartItemToRemove: any, wholeItem: any) => {
         setCartItems(removeCartItem(cartItems, cartItemToRemove, wholeItem))
     }
     const clearCart = () => {
