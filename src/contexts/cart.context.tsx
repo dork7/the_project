@@ -1,6 +1,5 @@
 import { createContext, useEffect, useReducer, useState } from 'react';
 import { cartReducer } from '../reducers/cart.reducer';
-import { CART_ACTION_TYPES } from '../actions/types';
 import { updateCartItemAction } from '../actions/cart.actions';
 
 export const CartContext = createContext({
@@ -41,10 +40,17 @@ const removeCartItem = (cartItems: any, cartItemToRemove: any, wholeItem: boolea
 export const CartContextProvider = ({ children }: any) => {
 
     const [isCartOpen, setIsCartOpen] = useState(false)
-    const [state, dispatch] = useReducer(cartReducer, { cartItems: [], count: 0, totalPrice: 0 })
-    const { cartItems,
-        count,
-        totalPrice } = state
+    const [state, dispatch] = useReducer(cartReducer, {
+        cartItems: [{
+            id: 20,
+            productName: "Grey Jean Jacket",
+            price: 90,
+            imageUrl: "https://allensolly.abfrl.in/blog/wp-content/uploads/2022/07/Jacket.jpg",
+            quantity: 1
+        },], count: 0, totalPrice: 0
+    })
+    const { cartItems, count, totalPrice } = state
+
     const addItemsToCart = (productToAdd: any) => {
         updateCartItemAction(addCartItem(cartItems, productToAdd), dispatch)
     }
