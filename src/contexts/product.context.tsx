@@ -17,7 +17,6 @@ export const CategoriesContextProvider = ({ children }: any) => {
         // addCategoriesAndDocument('categories', SHOP_DATA)
         (async () => {
             const data = await getCategoriesAndDocument()
-            console.log('data', data)
             setCategoriesMap(data)
         })()
     }, [])

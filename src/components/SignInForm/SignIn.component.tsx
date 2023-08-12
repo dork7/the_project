@@ -28,9 +28,7 @@ const SignInForm = () => {
         (async () => {
             const response = await getRedirectResult(auth)
             if (response) {
-                console.log('response', response)
-                const userDocRef = await createUserDocumentFromAuth(response.user)
-                console.log('userDocRef', userDocRef)
+                await createUserDocumentFromAuth(response.user)
             }
         })()
 
