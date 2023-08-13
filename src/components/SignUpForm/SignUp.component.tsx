@@ -23,7 +23,6 @@ const SignUpForm = () => {
             if (err.code === "auth/email-already-in-use") {
                 notifyMe({ type: "error", msg: "Email already in use" })
             } else {
-                console.log('err', err.code)
                 notifyMe({ type: "error", msg: err.code })
             }
         }

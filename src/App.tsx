@@ -7,9 +7,11 @@ import CheckoutPage from './routes/checkout/Checkout.page'
 import HomePage from './routes/home/home.page'
 import ShopPage from './routes/shop/shop.page'
 import { useEffect } from 'react'
-import { onAuthChangeStateListener } from './utils/firebase.util'
+import { getCategoriesAndDocument, onAuthChangeStateListener } from './utils/firebase.util'
 import { setCurrentUser } from './store/user/user.actions'
 import { useDispatch } from 'react-redux'
+import { setProducts } from './store/product/product.actions'
+import SHOP_DATA from './data/shop-data'
 
 const App = () => {
 
@@ -21,6 +23,14 @@ const App = () => {
             dispatch(setCurrentUser(user))
         })
         return unSub
+    }, [])
+
+    useEffect(() => {
+        // addCategoriesAndDocument('categories', SHOP_DATA)
+        (async () => {
+            const data = await getCategoriesAndDocument()
+            dispatch(setProducts(data))
+        })()
     }, [])
 
     return (

@@ -29,9 +29,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <ErrorBoundary fallbackRender={fallbackRender}>
           <BrowserRouter>
             <CartContextProvider>
-              <CategoriesContextProvider>
-                <App />
-              </CategoriesContextProvider>
+              <App />
             </CartContextProvider>
           </BrowserRouter>
         </ErrorBoundary>
