@@ -9,6 +9,8 @@ import Button from '../Button'
 import CartDropDown from '../CartDropDown'
 import CartIcon from '../CartIcon'
 import { NavContainer, NavItemContainer } from './NavBar.style'
+import { useSelector } from 'react-redux'
+import { selectCurrentUser } from '../../store/user/user.selector'
 
 type NavType = {
     id: number
@@ -43,9 +45,8 @@ const NavBar = () => {
         navigate("/auth")
     }
 
-    const { currentUser } = useContext(UserContext)
+    const currentUser = selectCurrentUser()
 
-    // console.log('currentUser', !!currentUser)
     const handleSignOut = async () => {
         await signOutUser()
         notifyMe({ type: 'success', msg: `You're logged out` })
