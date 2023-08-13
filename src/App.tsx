@@ -12,6 +12,7 @@ import { setCurrentUser } from './store/user/user.actions'
 import { useDispatch } from 'react-redux'
 import { setProducts } from './store/product/product.actions'
 import SHOP_DATA from './data/shop-data'
+import React from 'react'
 
 const App = () => {
 
@@ -28,8 +29,8 @@ const App = () => {
     useEffect(() => {
         // addCategoriesAndDocument('categories', SHOP_DATA)
         (async () => {
-            const data = await getCategoriesAndDocument()
-            dispatch(setProducts(data))
+            const categoriesArray = await getCategoriesAndDocument()
+            dispatch(setProducts(categoriesArray))
         })()
     }, [])
 

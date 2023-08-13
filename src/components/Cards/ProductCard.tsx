@@ -9,7 +9,7 @@ const ProductCard = () => {
 
     // const { categoriesMap }: any = useContext(CategoriesContext)
 
-    const { products: categoriesMap } = getProductSelector()
+    const categoriesMap = getProductSelector()
 
     const navigate = useNavigate()
     const handleClick = (item: string) => {

@@ -73,12 +73,13 @@ export const getCategoriesAndDocument = async () => {
     const collectionRef = collection(db, 'categories')
     const q = query(collectionRef)
     const querySnapshot = await getDocs(q)
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnapShot) => {
-        const { title, items } = docSnapShot.data()
-        acc[title.toLowerCase()] = items
-        return acc
-    }, {})
-    return categoryMap
+    // const categoryMap = querySnapshot.docs.reduce((acc, docSnapShot) => {
+    //     const { title, items } = docSnapShot.data()
+    //     acc[title.toLowerCase()] = items
+    //     return acc
+    // }, {})
+
+    return querySnapshot.docs.map((docSnapShot) => docSnapShot.data())
 }
 
 export const onAuthChangeStateListener = (callback: any) => onAuthStateChanged(auth, callback)
