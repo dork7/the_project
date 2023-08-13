@@ -1,6 +1,5 @@
 import { getRedirectResult } from 'firebase/auth'
-import { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../../contexts/user.context'
+import { useEffect, useState } from 'react'
 import { auth, createUserDocumentFromAuth, signInAuthWIthUserNamePassword, signInWithGooglePopup } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'

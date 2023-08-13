@@ -6,8 +6,33 @@ import AuthPage from './routes/auth/Auth.page'
 import CheckoutPage from './routes/checkout/Checkout.page'
 import HomePage from './routes/home/home.page'
 import ShopPage from './routes/shop/shop.page'
+import { useEffect } from 'react'
+import { getCategoriesAndDocument, onAuthChangeStateListener } from './utils/firebase.util'
+import { setCurrentUser } from './store/user/user.actions'
+import { useDispatch } from 'react-redux'
+import { setProducts } from './store/product/product.actions'
+import SHOP_DATA from './data/shop-data'
+import React from 'react'
 
 const App = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const unSub = onAuthChangeStateListener((user: any) => {
+            if (user === null) dispatch(setCurrentUser(null))
+            dispatch(setCurrentUser(user))
+        })
+        return unSub
+    }, [])
+
+    useEffect(() => {
+        // addCategoriesAndDocument('categories', SHOP_DATA)
+        (async () => {
+            const categoriesArray = await getCategoriesAndDocument()
+            dispatch(setProducts(categoriesArray))
+        })()
+    }, [])
 
     return (
         <div>

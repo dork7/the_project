@@ -1,15 +1,15 @@
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-import { ErrorBoundary } from "react-error-boundary";
-import { theme } from './config/theme.ts';
-import { UserContextProvider } from './contexts/user.context.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ErrorBoundary } from "react-error-boundary";
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
-import './index.css';
-import { CategoriesContextProvider } from './contexts/product.context.tsx';
+import { theme } from './config/theme.ts';
 import { CartContextProvider } from './contexts/cart.context.tsx';
-
+import { CategoriesContextProvider } from './contexts/product.context.tsx';
+import './index.css';
+import { store } from './store/store.js';
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
@@ -23,18 +23,17 @@ function fallbackRender({ error, resetErrorBoundary }: any) {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <ErrorBoundary fallbackRender={fallbackRender}>
-        <BrowserRouter>
-          <UserContextProvider>
+    <Provider store={store}>
+
+      <ThemeProvider theme={theme}>
+        <ErrorBoundary fallbackRender={fallbackRender}>
+          <BrowserRouter>
             <CartContextProvider>
-              <CategoriesContextProvider>
-                <App />
-              </CategoriesContextProvider>
+              <App />
             </CartContextProvider>
-          </UserContextProvider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </ThemeProvider>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
 )

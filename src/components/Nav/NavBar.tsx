@@ -2,13 +2,14 @@ import { useContext } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import CrwnLogo from "../../assets/crown.svg"
 import { CartContext } from '../../contexts/cart.context'
-import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'
 import CartDropDown from '../CartDropDown'
 import CartIcon from '../CartIcon'
 import { NavContainer, NavItemContainer } from './NavBar.style'
+import { useSelector } from 'react-redux'
+import { selectCurrentUser } from '../../store/user/user.selector'
 
 type NavType = {
     id: number
@@ -43,9 +44,8 @@ const NavBar = () => {
         navigate("/auth")
     }
 
-    const { currentUser } = useContext(UserContext)
+    const currentUser = selectCurrentUser()
 
-    // console.log('currentUser', !!currentUser)
     const handleSignOut = async () => {
         await signOutUser()
         notifyMe({ type: 'success', msg: `You're logged out` })
