@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import CrwnLogo from "../../assets/crown.svg"
 import { CartContext } from '../../contexts/cart.context'
-import { UserContext } from '../../contexts/user.context'
 import { signOutUser } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'

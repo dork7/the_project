@@ -1,8 +1,3 @@
-export const USER_ACTION_TYPES = {
-    SET_CURRENT_USER: "SET_CURRENT_USER",
-    LOGOUT_USER: "LOGOUT_USER"
-}
-
 export const CART_ACTION_TYPES = {
     SET_CART_ITEM: 'SET_CART_ITEM',
 }

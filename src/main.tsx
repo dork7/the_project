@@ -1,15 +1,14 @@
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-import { ErrorBoundary } from "react-error-boundary";
-import { theme } from './config/theme.ts';
-import { UserContextProvider } from './contexts/user.context.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
-import { CategoriesContextProvider } from './contexts/product.context.tsx';
-import { CartContextProvider } from './contexts/cart.context.tsx';
+import { ErrorBoundary } from "react-error-boundary";
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App.tsx';
+import { theme } from './config/theme.ts';
+import { CartContextProvider } from './contexts/cart.context.tsx';
+import { CategoriesContextProvider } from './contexts/product.context.tsx';
+import './index.css';
 import { store } from './store/store.js';
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
@@ -29,13 +28,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <ThemeProvider theme={theme}>
         <ErrorBoundary fallbackRender={fallbackRender}>
           <BrowserRouter>
-            <UserContextProvider>
-              <CartContextProvider>
-                <CategoriesContextProvider>
-                  <App />
-                </CategoriesContextProvider>
-              </CartContextProvider>
-            </UserContextProvider>
+            <CartContextProvider>
+              <CategoriesContextProvider>
+                <App />
+              </CategoriesContextProvider>
+            </CartContextProvider>
           </BrowserRouter>
         </ErrorBoundary>
       </ThemeProvider>
