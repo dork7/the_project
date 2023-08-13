@@ -2,8 +2,9 @@ import { useParams } from 'react-router-dom';
 import CategoryPreview from '../../components/CategoryPreview';
 import { getProductSelector } from '../../store/product/product.selector';
 import './shop.styles.scss';
+import { useSelector } from 'react-redux';
 const ShopPage = () => {
-    const { products: categoriesMap } = getProductSelector()
+    const categoriesMap = useSelector(getProductSelector)
     const params = useParams()
     return (
         <>
