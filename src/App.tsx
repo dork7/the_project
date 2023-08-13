@@ -6,8 +6,22 @@ import AuthPage from './routes/auth/Auth.page'
 import CheckoutPage from './routes/checkout/Checkout.page'
 import HomePage from './routes/home/home.page'
 import ShopPage from './routes/shop/shop.page'
+import { useEffect } from 'react'
+import { onAuthChangeStateListener } from './utils/firebase.util'
+import { setCurrentUser } from './store/user/user.actions'
+import { useDispatch } from 'react-redux'
 
 const App = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const unSub = onAuthChangeStateListener((user: any) => {
+            if (user === null) dispatch(setCurrentUser(null))
+            dispatch(setCurrentUser(user))
+        })
+        return unSub
+    }, [])
 
     return (
         <div>
