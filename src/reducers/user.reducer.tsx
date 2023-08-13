@@ -14,6 +14,6 @@ export const userReducer = (state = initialState, action) => {
             }
 
         default:
-            throw new Error("Unhandled type in user reducer")
+            return state
     }
 }

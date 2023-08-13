@@ -27,6 +27,6 @@ export const cartReducer = (state = initialState, action) => {
             }
 
         default:
-            throw new Error(`Unhandled ${type} in cart reducer`)
+            return state
     }
 }

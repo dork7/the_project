@@ -9,7 +9,8 @@ import App from './App.tsx';
 import './index.css';
 import { CategoriesContextProvider } from './contexts/product.context.tsx';
 import { CartContextProvider } from './contexts/cart.context.tsx';
-
+import { Provider } from 'react-redux';
+import { store } from './store/store.js';
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
@@ -23,18 +24,21 @@ function fallbackRender({ error, resetErrorBoundary }: any) {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <ErrorBoundary fallbackRender={fallbackRender}>
-        <BrowserRouter>
-          <UserContextProvider>
-            <CartContextProvider>
-              <CategoriesContextProvider>
-                <App />
-              </CategoriesContextProvider>
-            </CartContextProvider>
-          </UserContextProvider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </ThemeProvider>
+    <Provider store={store}>
+
+      <ThemeProvider theme={theme}>
+        <ErrorBoundary fallbackRender={fallbackRender}>
+          <BrowserRouter>
+            <UserContextProvider>
+              <CartContextProvider>
+                <CategoriesContextProvider>
+                  <App />
+                </CategoriesContextProvider>
+              </CartContextProvider>
+            </UserContextProvider>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
 )
