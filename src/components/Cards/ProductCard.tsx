@@ -4,12 +4,11 @@ import { CategoriesContext } from '../../contexts/product.context'
 import './categories.styles.scss'
 import { getProductSelector } from '../../store/product/product.selector'
 import Hamster from '../../components/Loaders/Hamster'
+import { useSelector } from 'react-redux'
 
 const ProductCard = () => {
 
-    // const { categoriesMap }: any = useContext(CategoriesContext)
-
-    const categoriesMap = getProductSelector()
+    const categoriesMap = useSelector(getProductSelector)
 
     const navigate = useNavigate()
     const handleClick = (item: string) => {
