@@ -6,12 +6,6 @@ import { rootReducer } from './rootReducer'
 
 
 
-const middleWareLogger = (store) => (next) => (action) => {
-    if (!action.type) {
-        return next(action);
-    }
-    next(action)
-}
 
 
 const persisConfig = {
@@ -23,10 +17,13 @@ const persisConfig = {
 const persistedReducer = persistReducer(persisConfig, rootReducer)
 
 const middleWares = [
-    // logger,
+    process.env.NODE_ENV !== "production" && logger,
     // middleWareLogger
-]
-const composedEnhancers = compose(applyMiddleware(...middleWares))
+].filter(Boolean)
+
+const composeEnhancer = (process.env.NODE_ENV !== "production" && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+
+const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares))
 
 export const store = createStore(persistedReducer, undefined, composedEnhancers)
 
