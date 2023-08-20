@@ -24,7 +24,7 @@ const CartDropDown = () => {
         <div className='cart-dropdown-container'>
             <div className="cart-items">
                 <CartItem name="lol" quantity="222" />
-                {cartItems?.map(item => <CartItem item={item} />)}
+                {cartItems?.map(item => <CartItem key={item.id} item={item} />)}
             </div>
             <Button buttonType='inverted' onClick={checkoutClick}>Checkout</Button>
         </div>
