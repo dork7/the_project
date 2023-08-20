@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import './checkoutItem.styles.scss'
-import { CartContext } from '../../contexts/cart.context'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemsToCart, removeItemFromCart } from '../../store/cart/actions'
 import { getCartItems } from '../../store/cart/selector'
+import './checkoutItem.styles.scss'
 const CheckoutItem = (props) => {
 
   // const { cartItems, addItemsToCart, removeItemFromCart } = useContext(CartContext)
@@ -13,9 +12,11 @@ const CheckoutItem = (props) => {
   const cartItems = useSelector(getCartItems)
 
   const addItemHandler = (item) => {
+    console.log('item', item)
     dispatch(addItemsToCart(cartItems, item))
   }
   const removeItemHandler = (item, wholeItem = false) => {
+    console.log('item', item)
     dispatch(removeItemFromCart(cartItems, item, wholeItem))
   }
 

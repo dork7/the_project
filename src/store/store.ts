@@ -14,7 +14,7 @@ const middleWareLogger = (store) => (next) => (action) => {
 
 
 const middleWares = [
-    logger,
+    // logger,
     // middleWareLogger
 ]
 const composedEnhancers = compose(applyMiddleware(...middleWares))
