@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './categories.styles.scss'
-import { getProductSelector } from '../../store/product/product.selector'
+import { getProductSelector } from '../../store/product/selector'
 import Hamster from '../../components/Loaders/Hamster'
 import { useSelector } from 'react-redux'
 

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import CategoryPreview from '../../components/CategoryPreview';
-import { getProductSelector } from '../../store/product/product.selector';
+import { getProductSelector } from '../../store/product/selector';
 import './shop.styles.scss';
 import { useSelector } from 'react-redux';
 const ShopPage = () => {

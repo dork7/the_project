@@ -9,7 +9,7 @@ import CartDropDown from '../CartDropDown'
 import CartIcon from '../CartIcon'
 import { NavContainer, NavItemContainer } from './NavBar.style'
 import { useSelector } from 'react-redux'
-import { selectCurrentUser } from '../../store/user/user.selector'
+import { selectCurrentUser } from '../../store/user/selector'
 
 type NavType = {
     id: number
