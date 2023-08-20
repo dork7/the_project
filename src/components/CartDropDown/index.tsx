@@ -12,7 +12,6 @@ const CartDropDown = () => {
 
 
     const dispatch = useDispatch()
-    // dispatch(setIsCartOpen(!getIsCartOpen))
     const navigate = useNavigate()
     const cartItems = useSelector(getCartItems)
     const checkoutClick = () => {
