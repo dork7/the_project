@@ -6,8 +6,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { theme } from './config/theme.ts';
-import { CartContextProvider } from './contexts/cart.context.tsx';
-import { CategoriesContextProvider } from './contexts/product.context.tsx';
 import './index.css';
 import { store } from './store/store.js';
 
@@ -28,9 +26,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <ThemeProvider theme={theme}>
         <ErrorBoundary fallbackRender={fallbackRender}>
           <BrowserRouter>
-            <CartContextProvider>
-              <App />
-            </CartContextProvider>
+            <App />
           </BrowserRouter>
         </ErrorBoundary>
       </ThemeProvider>
