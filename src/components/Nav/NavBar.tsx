@@ -1,15 +1,14 @@
-import { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import CrwnLogo from "../../assets/crown.svg"
-import { CartContext } from '../../contexts/cart.context'
+import { getIsCartOpen } from '../../store/cart/selector'
+import { selectCurrentUser } from '../../store/user/selector'
 import { signOutUser } from '../../utils/firebase.util'
 import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'
 import CartDropDown from '../CartDropDown'
 import CartIcon from '../CartIcon'
 import { NavContainer, NavItemContainer } from './NavBar.style'
-import { useSelector } from 'react-redux'
-import { selectCurrentUser } from '../../store/user/selector'
 
 type NavType = {
     id: number
@@ -51,8 +50,9 @@ const NavBar = () => {
         notifyMe({ type: 'success', msg: `You're logged out` })
     }
 
-    const cartContext = useContext(CartContext)
-    const { isCartOpen } = cartContext
+    const isCartOpen = useSelector(getIsCartOpen)
+    console.log('isCartOpen', isCartOpen)
+
 
     const checkoutClick = () => {
         navigate('/checkout')
