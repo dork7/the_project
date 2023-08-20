@@ -51,7 +51,6 @@ const NavBar = () => {
     }
 
     const isCartOpen = useSelector(getIsCartOpen)
-    console.log('isCartOpen', isCartOpen)
 
 
     const checkoutClick = () => {

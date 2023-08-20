@@ -41,7 +41,7 @@ export const addItemsToCart = (cartItems, productToAdd: any) => {
     return { type: CART_ACTION_TYPES.SET_CART_ITEM, payload: addCartItem(cartItems, productToAdd) }
 }
 export const removeItemFromCart = (cartItems, cartItemToRemove: any, wholeItem?: any) => {
-    return { type: CART_ACTION_TYPES.SET_CART_ITEM, payload: addCartItem(cartItems, removeCartItem(cartItems, cartItemToRemove, wholeItem)) }
+    return { type: CART_ACTION_TYPES.SET_CART_ITEM, payload: removeCartItem(cartItems, cartItemToRemove, wholeItem) }
 }
 export const clearCart = () => {
     return { type: CART_ACTION_TYPES.SET_CART_ITEM, payload: [] }
@@ -49,5 +49,4 @@ export const clearCart = () => {
 
 export const setIsCartOpen = (isOpen) => {
     return { type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: isOpen }
-
 }
