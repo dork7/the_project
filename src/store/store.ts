@@ -3,7 +3,7 @@ import logger from 'redux-logger'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { rootReducer } from './rootReducer'
-
+import thunk from 'redux-thunk'
 const persisConfig = {
     key: 'root',
     storage,
@@ -13,7 +13,7 @@ const persisConfig = {
 const persistedReducer = persistReducer(persisConfig, rootReducer)
 
 const middleWares = [
-    process.env.NODE_ENV !== "production" && logger,
+    process.env.NODE_ENV !== "production" && logger, thunk
     // middleWareLogger
 ].filter(Boolean)
 
