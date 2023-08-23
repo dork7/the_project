@@ -20,7 +20,7 @@ export const productReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 products: payload,
-                isLoading: false
+                isLoading: true
             }
         case PRODUCT_ACTION_TYPES.FETCH_PRODUCT_FAILED:
             return {
