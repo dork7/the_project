@@ -12,11 +12,9 @@ const CheckoutItem = (props) => {
   const cartItems = useSelector(getCartItems)
 
   const addItemHandler = (item) => {
-    console.log('item', item)
     dispatch(addItemsToCart(cartItems, item))
   }
   const removeItemHandler = (item, wholeItem = false) => {
-    console.log('item', item)
     dispatch(removeItemFromCart(cartItems, item, wholeItem))
   }
 

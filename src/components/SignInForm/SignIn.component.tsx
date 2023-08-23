@@ -5,6 +5,7 @@ import { notifyMe } from '../../utils/notifications'
 import Button from '../Button'
 import FormInput from '../FormInput/FormInput.component'
 import './sigin.style.scss'
+import { useNavigate } from 'react-router-dom'
 
 
 const defaultValues = {
@@ -12,9 +13,9 @@ const defaultValues = {
 }
 const SignInForm = () => {
 
+    const navigate = useNavigate()
     const [formValues, setFormValues] = useState(defaultValues)
     const { email, password } = formValues
-
     const logUserWithGoogle = async () => {
         const { user } = await signInWithGooglePopup()
         await createUserDocumentFromAuth(user, {})
@@ -45,9 +46,8 @@ const SignInForm = () => {
         try {
 
             const { user }: any = await signInAuthWIthUserNamePassword(email, password)
-            // setCurrentUser(user)
             notifyMe({ type: "success", msg: "Logged in" })
-
+            navigate('/')
         } catch (err: any) {
             notifyMe({ type: "error", msg: err.code ?? err })
 

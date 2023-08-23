@@ -7,7 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { theme } from './config/theme.ts';
 import './index.css';
-import { store } from './store/store.js';
+import { persistor, store } from './store/store.js';
+import { PersistGate } from 'redux-persist/integration/react'
 
 function fallbackRender({ error, resetErrorBoundary }: any) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
@@ -22,14 +23,15 @@ function fallbackRender({ error, resetErrorBoundary }: any) {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-
-      <ThemeProvider theme={theme}>
-        <ErrorBoundary fallbackRender={fallbackRender}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ErrorBoundary>
-      </ThemeProvider>
+      <PersistGate loading={<div>Loading....</div>} persistor={persistor} >
+        <ThemeProvider theme={theme}>
+          <ErrorBoundary fallbackRender={fallbackRender}>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </ErrorBoundary>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode >,
 )
