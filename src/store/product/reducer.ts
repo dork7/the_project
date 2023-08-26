@@ -1,7 +1,9 @@
 import { PRODUCT_ACTION_TYPES } from './actionTypes'
 
 export const INITIAL_STATE = {
-    products: []
+    products: [],
+    isLoading: false,
+    error: null
 }
 
 export const productReducer = (state = INITIAL_STATE, action) => {
@@ -9,10 +11,22 @@ export const productReducer = (state = INITIAL_STATE, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case PRODUCT_ACTION_TYPES.SET_PRODUCTS:
+        case PRODUCT_ACTION_TYPES.FETCH_PRODUCT_START:
             return {
                 ...state,
-                products: payload
+                isLoading: true
+            }
+        case PRODUCT_ACTION_TYPES.FETCH_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                products: payload,
+                isLoading: true
+            }
+        case PRODUCT_ACTION_TYPES.FETCH_PRODUCT_FAILED:
+            return {
+                ...state,
+                error: payload,
+                isLoading: false
             }
         default:
             return state

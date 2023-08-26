@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { getCategoriesAndDocument, onAuthChangeStateListener } from './utils/firebase.util'
 import { setCurrentUser } from './store/user/actions'
 import { useDispatch } from 'react-redux'
-import { setProducts } from './store/product/actions'
+import { fetchProductsAsync, setProducts } from './store/product/actions'
 import SHOP_DATA from './data/shop-data'
 import React from 'react'
 
@@ -28,10 +28,7 @@ const App = () => {
 
     useEffect(() => {
         // addCategoriesAndDocument('categories', SHOP_DATA)
-        (async () => {
-            const categoriesArray = await getCategoriesAndDocument()
-            dispatch(setProducts(categoriesArray))
-        })()
+        dispatch(fetchProductsAsync())
     }, [])
 
     return (

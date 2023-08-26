@@ -10,3 +10,9 @@ export const getProductSelector = createSelector([getProduct], (products) => pro
     acc[title.toLowerCase()] = items
     return acc
 }, {}))
+
+
+export const selectProductIsLoading = createSelector(
+    [getProductReducer],
+    (productsSlice) => productsSlice.isLoading
+)
